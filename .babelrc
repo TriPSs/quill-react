@@ -1,12 +1,14 @@
 {
   "presets": [
 	"es2015",
+	"react",
 	"stage-0",
 	"flow"
   ],
   "plugins": [
 	"transform-inline-environment-variables",
 	"remove-comments",
+	"add-react-displayname",
 	"minify-dead-code-elimination"
   ]
 }
