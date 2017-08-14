@@ -1,0 +1,12 @@
+{
+  "presets": [
+	"es2015",
+	"stage-0",
+	"flow"
+  ],
+  "plugins": [
+	"transform-inline-environment-variables",
+	"remove-comments",
+	"minify-dead-code-elimination"
+  ]
+}

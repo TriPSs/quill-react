@@ -1,0 +1,58 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "airbnb-base",
+    "plugin:flowtype/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "babel",
+    "promise",
+    "flowtype",
+    "jest"
+  ],
+  "env"     : {
+    "jest/globals": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "rules": {
+    // ESLint Rules
+    "no-console": 2,
+    "no-extra-semi": 2,
+    "no-multi-spaces": 0,
+    "key-spacing": 0,
+    "no-return-assign": 0,
+    "curly": 0,
+    "padded-blocks": 0,
+    "brace-style": 0,
+    "space-before-function-paren": [2, "never"],
+    "semi" : [2, "never"],
+    "max-len": [2, 120, 2],
+    "no-trailing-spaces": 0,
+
+    // Babel Rules
+    "babel/generator-star-spacing": 2,
+    "babel/new-cap": 2,
+    "babel/array-bracket-spacing": 2,
+    "babel/object-curly-spacing": [2, "always"],
+    "babel/object-shorthand": 2,
+    "babel/arrow-parens": [0, "as-needed"],
+    "babel/no-await-in-loop": 2,
+    "babel/flow-object-type": 2,
+    "babel/func-params-comma-dangle": 2,
+
+    // Jest
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error"
+
+  }
+}
