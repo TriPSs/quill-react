@@ -6,6 +6,7 @@
   "bugs": {
     "url": "https://github.com/TriPSs/quill-react/issues"
   },
+  "license": "MIT",
   "author": {
     "name": "Tycho Bokdam",
     "email": "t.bokdam@seronaris.nl"
