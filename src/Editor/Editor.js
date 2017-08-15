@@ -18,7 +18,7 @@ export default class extends React.Component {
     editorStyle   : {},
     editorClass   : '',
     editorID      : 'quill-react',
-    modules       : {}
+    settings      : {}
   }
 
   defaultModules = {
@@ -30,7 +30,7 @@ export default class extends React.Component {
   editor
 
   componentDidMount() {
-    const { editorID, modules } = this.props
+    const { editorID, settings: { modules, ...rest } } = this.props
 
     this.Quill  = require('quill')
     this.editor = new this.Quill(`#${editorID}`, {
@@ -38,18 +38,20 @@ export default class extends React.Component {
         ...this.defaultModules,
         ...modules,
       },
-      theme  : 'snow'
+      ...rest,
     })
   }
 
   render() {
-    const { containerStyle, containerClass }     = this.props
-    const { editorStyle, editorClass, editorID } = this.props
+    const { containerStyle, containerClass, children } = this.props
+    const { editorStyle, editorClass, editorID }       = this.props
 
     return (
       <div style={containerStyle} className={containerClass}>
 
-        <div style={editorStyle} className={editorClass} id={editorID} />
+        <div style={editorStyle} className={editorClass} id={editorID}>
+          {children}
+        </div>
 
       </div>
     )
