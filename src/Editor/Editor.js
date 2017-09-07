@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import QuillDeltaToHtmlConverter from 'quill-delta-to-html'
 
 export default class extends React.Component {
 
@@ -30,7 +31,7 @@ export default class extends React.Component {
   editor
 
   componentDidMount() {
-    const { editorID, settings: { modules, ...rest } } = this.props
+    const { editorID, children, settings: { modules, ...rest } } = this.props
 
     this.Quill  = require('quill')
     this.editor = new this.Quill(`#${editorID}`, {
@@ -40,7 +41,13 @@ export default class extends React.Component {
       },
       ...rest,
     })
+
+    if (children) {
+      this.editor.clipboard.dangerouslyPasteHTML(children)
+    }
   }
+
+  getHTML = () => (new QuillDeltaToHtmlConverter(this.editor.getContents().ops, {})).convert()
 
   render() {
     const { containerStyle, containerClass, children } = this.props
@@ -49,9 +56,7 @@ export default class extends React.Component {
     return (
       <div style={containerStyle} className={containerClass}>
 
-        <div style={editorStyle} className={editorClass} id={editorID}>
-          {children}
-        </div>
+        <div style={editorStyle} className={editorClass} id={editorID} />
 
       </div>
     )
