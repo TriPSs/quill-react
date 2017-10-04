@@ -1,17 +1,12 @@
 // @flow
 import React from 'react'
-import QuillDeltaToHtmlConverter from 'quill-delta-to-html'
+import editorAPI from './EditorAPI'
+
+import type { Props, EditorType, ApiType } from './EditorTypes'
 
 export default class extends React.Component {
 
-  props: {
-    containerStyle: ?Object,
-    containerClass: ?string,
-    editorStyle: ?Object,
-    editorClass: ?string,
-    editorID: ?string,
-    modules: ?Object,
-  }
+  props: Props
 
   static defaultProps = {
     containerStyle: {},
@@ -19,7 +14,7 @@ export default class extends React.Component {
     editorStyle   : {},
     editorClass   : '',
     editorID      : 'quill-react',
-    settings      : {}
+    settings      : {},
   }
 
   defaultModules = {
@@ -28,12 +23,15 @@ export default class extends React.Component {
 
   Quill
 
-  editor
+  editor: EditorType
+
+  api: ApiType
 
   componentDidMount() {
-    const { editorID, children, settings: { modules, ...rest } } = this.props
+    const { editorID, settings: { modules, ...rest } } = this.props
 
-    this.Quill  = require('quill')
+    this.Quill = require('quill')
+
     this.editor = new this.Quill(`#${editorID}`, {
       modules: {
         ...this.defaultModules,
@@ -42,16 +40,21 @@ export default class extends React.Component {
       ...rest,
     })
 
-    if (children) {
-      this.editor.clipboard.dangerouslyPasteHTML(children)
-    }
+    this.setAPI()
+    this.reset()
   }
 
-  getHTML = () => (new QuillDeltaToHtmlConverter(this.editor.getContents().ops, {})).convert()
+  setAPI = (api = editorAPI) => this.api = new api(this.editor, this.props)
+
+  reset = () => {
+    const { children } = this.props
+
+    this.api.insertHTML(children || '<div></div>')
+  }
 
   render() {
-    const { containerStyle, containerClass, children } = this.props
-    const { editorStyle, editorClass, editorID }       = this.props
+    const { containerStyle, containerClass }     = this.props
+    const { editorStyle, editorClass, editorID } = this.props
 
     return (
       <div style={containerStyle} className={containerClass}>

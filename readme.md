@@ -9,7 +9,10 @@
 </p>
 
 <p align="center">
-  <!-- <a href="#"><img alt="#" src="#"></a> -->
+  <a href="https://www.npmjs.com/package/quill-react" title="downloads"><img src="https://img.shields.io/npm/v/quill-react.svg?maxAge=2592000&style=flat-square"/></a>
+  <a href="https://npm-stat.com/charts.html?package=quill-react" title="downloads"><img src="https://img.shields.io/npm/dt/quill-react.svg?maxAge=2592000&style=flat-square"/></a>
+  <a href="https://david-dm.org/tripss/quill-react" title="dependencies status"><img src="https://david-dm.org/tripss/quill-react/status.svg?style=flat-square"/></a>
+  <a href="https://david-dm.org/tripss/quill-react?type=dev" title="devDependencies status"><img src="https://david-dm.org/tripss/quill-react/dev-status.svg?style=flat-square"/></a>
 </p>
 
 ---
