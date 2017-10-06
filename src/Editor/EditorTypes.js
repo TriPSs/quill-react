@@ -18,4 +18,5 @@ export type EditorType = {
 export type ApiType = {
   getHTML: () => string,
   insertHTML: (html: string) => void,
+  insertText: (text: string, range: ?number) => void,
 }
