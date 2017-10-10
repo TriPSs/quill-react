@@ -16,6 +16,10 @@ export default class extends React.Component {
     editorClass   : '',
     editorID      : 'quill-react',
     settings      : {},
+
+    onFocus   : () => {},
+    onBlur    : () => {},
+    onKeyPress: () => {},
   }
 
   props: Props
@@ -98,13 +102,18 @@ export default class extends React.Component {
   render() {
     const { containerStyle, containerClass }     = this.props
     const { editorStyle, editorClass, editorID } = this.props
+    const { onFocus, onBlur, onKeyPress }        = this.props
 
     return (
       <div style={containerStyle} className={containerClass}>
 
         <Toolbar {...this.getToolbarProps()} />
 
-        <div style={editorStyle} className={editorClass} id={editorID} />
+        <div
+          {...{ onFocus, onBlur, onKeyPress }}
+          style={editorStyle}
+          className={editorClass}
+          id={editorID} />
 
       </div>
     )

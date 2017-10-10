@@ -7,16 +7,20 @@ export type Props = {
   editorClass: ?string,
   editorID: ?string,
   modules: ?Object,
-}
 
-export type EditorType = {
-  buildEditor: () => void,
-  setAPI: (api: ApiType) => void,
-  reset: () => void,
+  onFocus: () => void,
+  onBlur: () => void,
+  onKeyPress: () => void,
 }
 
 export type ApiType = {
   getHTML: () => string,
   insertHTML: (html: string) => void,
   insertText: (text: string, range: ?number) => void,
+}
+
+export type EditorType = {
+  buildEditor: () => void,
+  setAPI: (api: ApiType) => void,
+  reset: () => void,
 }
