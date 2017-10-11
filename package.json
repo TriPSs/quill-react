@@ -1,6 +1,6 @@
 {
   "name": "quill-react",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Quill is a modern rich text editor built for compatibility and extensibility, now it's availble for React.",
   "homepage": "https://github.com/TriPSs/quill-react#readme",
   "bugs": {
@@ -21,11 +21,12 @@
     "build:watch": "npm run build -- --watch",
     "cleanup": "rimraf ./Editor ./index.js",
     "flow": "flow",
+    "flow:copy": "./node_modules/flow-copy-source/bin/flow-copy-source.js src ./ --ignore __tests__/*",
     "lint:js": "eslint --format=node_modules/eslint-formatter-pretty src/**/*.js",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:styles": "stylelint src/*.css src/**/*.css --syntax scss",
     "lint:styles:fix": "stylefmt -r src/*.css src/**/*.css",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm run flow:copy",
     "test": "jest .spec.js",
     "test:update": "npm test -- -u",
     "test:watch": "npm test -- --watch"
@@ -62,6 +63,7 @@
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "^0.51.0",
+    "flow-copy-source": "^1.2.1",
     "jest": "^20.0.4",
     "react-test-renderer": "^15.6.1"
   },
