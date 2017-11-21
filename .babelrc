@@ -6,9 +6,7 @@
 	"flow"
   ],
   "plugins": [
-	"transform-inline-environment-variables",
 	"remove-comments",
-	"add-react-displayname",
-	"minify-dead-code-elimination"
+	"add-react-displayname"
   ]
 }
