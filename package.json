@@ -1,6 +1,6 @@
 {
   "name": "quill-react",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Quill is a modern rich text editor built for compatibility and extensibility, now it's availble for React.",
   "homepage": "https://github.com/TriPSs/quill-react#readme",
   "bugs": {
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/TriPSs/quill-react.git"
   },
   "scripts": {
-    "build": "NODE_ENV=production babel src -d ./ --copy-files --ignore __tests__/*",
+    "build": "npm run cleanup && NODE_ENV=production babel src -d ./ --copy-files --ignore __tests__/*",
     "build:watch": "npm run build -- --watch",
     "cleanup": "rimraf ./Editor ./index.js",
     "flow": "flow",
