@@ -1,4 +1,3 @@
-// @flow
 import QuillDeltaToHtmlConverter from 'quill-delta-to-html'
 
 export default class {
@@ -22,7 +21,7 @@ export default class {
       range = this.editor.getSelection()
     }
 
-    this.editor.insertText(range.index, text);
+    this.editor.insertText(range.index, text)
   }
 
 }

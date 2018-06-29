@@ -14,8 +14,7 @@ export default class extends React.Component {
   renderGroup = (item, key) => (
     <span
       key={item.label || key}
-      className={'ql-formats'}
-    >
+      className={'ql-formats'}>
       {item.items.map(this.renderItem)}
     </span>
   )
@@ -23,8 +22,7 @@ export default class extends React.Component {
   renderChoiceItem = (item, key) => (
     <option
       key={item.label || item.value || key}
-      value={item.value}
-    >
+      value={item.value}>
       {item.label}
     </option>
   )
@@ -66,8 +64,7 @@ export default class extends React.Component {
       <span
         key={item.label || item.value || key}
         className={`ql-${item.type}`}
-        title={item.title}
-      >
+        title={item.title}>
         {item.children}
       </span>
     )
