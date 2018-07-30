@@ -80,7 +80,6 @@ export default class extends React.Component {
     }
   }
 
-
   getToolbarProps = () => {
     const { settings: { modules: { toolbar } } } = this.props
 

@@ -46,6 +46,18 @@ export default {
       counterReset: 'list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9',
     },
 
+    '.ql-editor table': {
+      borderCollapse: 'collapse',
+    },
+
+    '.ql-editor tr, .ql-editor td': {
+      border: '1px solid #000',
+    },
+
+    '.ql-editor td': {
+      padding: '2px 5px',
+    },
+
     '.ql-editor ol, .ql-editor ul': {
       paddingLeft: '1.5em',
     },

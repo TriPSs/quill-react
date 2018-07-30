@@ -1,6 +1,6 @@
 {
   "name": "quill-react",
-  "version": "0.3.0",
+  "version": "1.0.0-alpha.2",
   "description": "Quill is a modern rich text editor built for compatibility and extensibility, now it's availble for React.",
   "homepage": "https://github.com/TriPSs/quill-react#readme",
   "bugs": {
@@ -33,8 +33,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "quill": "^1.3.6",
-    "quill-delta-to-html": "^0.8.4",
+    "quill": "2.0.0-dev.1",
     "react": "^16.4.1"
   },
   "devDependencies": {
